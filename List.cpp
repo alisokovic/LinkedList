@@ -9,6 +9,13 @@ List::List()
 }
 
 
+List::List(const List& rhs)
+{
+    dummyHead = new Node{};
+    *this = rhs;
+}
+
+
 
 // Member Functions
 
@@ -107,4 +114,22 @@ void List::makeEmpty()
     {
         remove(first()->element);
     }
+}
+
+
+List& List::operator=(const List& rhs)
+{
+    if (this != &rhs)
+    {
+        makeEmpty();
+        const Node* r{rhs.first()};
+        Node* p{zeroth()};
+        while(r)
+        {
+            insert(r->element,p);
+            r = r->next;
+            p = p->next;
+        }
+    }
+    return *this;
 }

@@ -6,22 +6,19 @@
 
 int main()
 {
-    List myList{};
+    List list1{};
 
-    Node* p{myList.zeroth()};
+    Node* p1{list1.zeroth()};
     for (int index{1} ; index <= 10 ; ++index)
     {
-        myList.insert(index,p);
-        p = p->next;
+        list1.insert(index,p1);
+        p1 = p1->next;
     }
 
-    myList.print();
 
-    myList.makeEmpty();
+    List list2{list1};
 
-    myList.print();
-
-    
+    list2.print();
 
 
     return 0;
