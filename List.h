@@ -12,6 +12,7 @@ public:
 
     List();
     List(const List& rhs);
+    List(const char* fName);
     ~List();
 
     
@@ -36,6 +37,9 @@ public:
     int getSize() const;
     void inserAt(const int& index, const int& item);
     void removeAt(const int& index);
+    void toFile(const char* fName) const;
+    void toFileR(const char* fName);
+    void fromFile(const char* fName);
 
 
 private:

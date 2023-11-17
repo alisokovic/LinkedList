@@ -1,5 +1,7 @@
-#include <iostream>
 #include "List.h"
+#include <fstream>
+#include <iostream>
+
 
 // Constructors
 
@@ -13,6 +15,13 @@ List::List(const List& rhs)
 {
     dummyHead = new Node{};
     *this = rhs;
+}
+
+
+List::List(const char* fName)
+{
+    dummyHead = new Node{};
+    fromFile(fName);
 }
 
 
@@ -165,6 +174,56 @@ void List::removeAt(const int& index)
     Node* tmp{ getNode(index) };
     getNode(index - 1)->next = tmp->next;
     delete tmp;
+}
+
+
+void List::toFile(const char* fName) const
+{
+    std::ofstream outputFile;
+    outputFile.open(fName);
+    const Node* p{ first() };
+    while (p)
+    {
+        outputFile << p->element << ' ';
+        if (getIndex(p) % 10 == 0)
+            outputFile << '\n';
+        p = p->next;
+    }
+    outputFile.close();
+}
+
+
+void List::toFileR(const char* fName)
+{
+    std::ofstream outputFile;
+    outputFile.open(fName);
+    for (int index{ getSize() }, count{ 1 }; index >= 1; --index, ++count)
+    {
+        outputFile << getNode(index)->element << ' ';
+        if (count % 10 == 0)
+            outputFile << '\n';
+    }
+    outputFile.close();
+}
+
+
+void List::fromFile(const char* fName)
+{
+    std::ifstream inputFile;
+    inputFile.open(fName);
+    if (inputFile)
+    {
+        while (inputFile)
+        {
+            int element{};
+            inputFile >> element;
+            appendItem(element);
+        }
+        removeAt(getSize());
+    }
+    else
+        std::cout << "No such file in the directory\n";
+    inputFile.close();
 }
 
 
