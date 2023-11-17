@@ -1,2 +1,3 @@
 # LinkedList
-Ceng-301 HW2
+
+This is the linked list homework in Ceng-301
