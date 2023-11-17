@@ -14,6 +14,9 @@ public:
     Node* first();
     const Node* first() const;
 
+    bool isEmpty() const;
+    void insert(const int& data, Node* p);
+
 private:
     Node* dummyHead;
 };
