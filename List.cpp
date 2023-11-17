@@ -99,3 +99,12 @@ void List::remove(const int& data)
     findPrevious(data)->next = tmp->next;
     delete tmp;
 }
+
+
+void List::makeEmpty()
+{
+    while (!isEmpty())
+    {
+        remove(first()->element);
+    }
+}

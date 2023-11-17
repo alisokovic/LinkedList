@@ -20,6 +20,7 @@ public:
     Node* findPrevious(const int& data);
     void insert(const int& data, Node* p);
     void remove(const int& data);
+    void makeEmpty();
 
 private:
     Node* dummyHead;

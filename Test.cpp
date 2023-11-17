@@ -17,7 +17,7 @@ int main()
 
     myList.print();
 
-    myList.remove(5);
+    myList.makeEmpty();
 
     myList.print();
 
