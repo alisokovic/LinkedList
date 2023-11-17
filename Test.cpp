@@ -6,7 +6,7 @@
 
 int main()
 {
-    List list1{"numbers.txt"};
+    List list1{5248522585};
 
     /*Node* p1{list1.zeroth()};
     for (int index{1} ; index <= 10 ; ++index)

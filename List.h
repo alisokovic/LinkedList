@@ -13,6 +13,7 @@ public:
     List();
     List(const List& rhs);
     List(const char* fName);
+    List(long long num);
     ~List();
 
     
@@ -40,6 +41,11 @@ public:
     void toFile(const char* fName) const;
     void toFileR(const char* fName);
     void fromFile(const char* fName);
+    void removeOdds();
+    bool isAscending() const;
+    void grow2();
+    void growNodeByNode(const int& times);
+    void numToList(long long num);
 
 
 private:

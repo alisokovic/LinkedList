@@ -25,6 +25,13 @@ List::List(const char* fName)
 }
 
 
+List::List(long long num)
+{
+    dummyHead = new Node{};
+    numToList(num);
+}
+
+
 List::~List()
 {
     makeEmpty();
@@ -224,6 +231,74 @@ void List::fromFile(const char* fName)
     else
         std::cout << "No such file in the directory\n";
     inputFile.close();
+}
+
+
+void List::removeOdds()
+{
+    for (int index{ 1 }; index <= getSize(); ++index)
+    {
+        if (getNode(index)->element % 2 != 0)
+        {
+            removeAt(index);
+            --index;
+        }
+    }
+}
+
+
+bool List::isAscending() const
+{
+    const Node* p{ first() };
+    while (p->next)
+    {
+        if (p->element >= p->next->element)
+            return false;
+
+        p = p->next;
+    }
+    return true;
+}
+
+
+void List::grow2()
+{
+    int size{ getSize() };
+    for (int index{ 1 }; index <= size; ++index)
+    {
+        appendItem(getNode(index)->element);
+    }
+}
+
+
+void List::growNodeByNode(const int& times)
+{
+    if (times <= 0)
+        return;
+    else
+    {
+        for (int index{ 1 }; index <= getSize(); index += times)
+        {
+            int element{ getNode(index)->element };
+            for (int count{ index }; count < (index + times - 1); ++count)
+            {
+                inserAt(count + 1, element);
+            }
+        }
+    }
+}
+
+
+void List::numToList(long long num)
+{
+    makeEmpty();
+
+    do
+    {
+        int element{ static_cast<int>(num % 10) };
+        insert(element, zeroth());
+
+    } while (num /= 10);
 }
 
 
