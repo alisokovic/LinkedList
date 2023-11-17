@@ -1,5 +1,6 @@
 #include "List.h"
 
+// Constructors
 
 List::List()
 {
@@ -7,3 +8,28 @@ List::List()
 }
 
 
+
+// Member Functions
+
+Node* List::zeroth()
+{
+    return dummyHead;
+}
+
+
+const Node* List::zeroth() const
+{
+    return dummyHead;
+}
+
+
+Node* List::first()
+{
+    return dummyHead->next;
+}
+
+
+const Node* List::first() const
+{
+    return dummyHead->next;
+}
