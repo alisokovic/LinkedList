@@ -15,10 +15,7 @@ int main()
         p1 = p1->next;
     }
 
-
-    List list2{list1};
-
-    list2.print();
+    list1.print();
 
 
     return 0;

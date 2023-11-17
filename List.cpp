@@ -16,6 +16,13 @@ List::List(const List& rhs)
 }
 
 
+List::~List()
+{
+    makeEmpty();
+    delete dummyHead;
+}
+
+
 
 // Member Functions
 
@@ -132,4 +139,34 @@ List& List::operator=(const List& rhs)
         }
     }
     return *this;
+}
+
+
+
+
+// Functions for simplicity
+
+Node* List::getNode(const int& index)
+{
+    Node* p{zeroth()};
+    for (int count{1} ; count <= index ; ++count)
+        p = p->next;
+
+    return p;
+}
+
+
+const int List::getIndex(const Node* pFind) const
+{
+    if (pFind == dummyHead)
+        return 0;
+    
+    int index{1};
+    const Node* p{first()};
+    while (p != pFind)
+    {
+        ++index;
+        p = p->next;
+    }
+    return index;
 }

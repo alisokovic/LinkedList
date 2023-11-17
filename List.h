@@ -9,6 +9,7 @@ class List
 public:
     List();
     List(const List& rhs);
+    ~List();
 
     Node* zeroth();
     const Node* zeroth() const;
@@ -27,6 +28,9 @@ public:
 
 private:
     Node* dummyHead;
+
+    Node* getNode(const int& index);
+    const int getIndex(const Node* pFind) const;
 };
 
 
