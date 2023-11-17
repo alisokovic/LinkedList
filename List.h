@@ -7,9 +7,15 @@
 class List
 {
 public:
+    
+    // Consturctors
+
     List();
     List(const List& rhs);
     ~List();
+
+    
+    // Member functions
 
     Node* zeroth();
     const Node* zeroth() const;
@@ -26,11 +32,21 @@ public:
 
     List& operator=(const List& rhs);
 
+    void appendItem(const int& data);
+    int getSize() const;
+    void inserAt(const int& index, const int& item);
+    void removeAt(const int& index);
+
+
 private:
+    
     Node* dummyHead;
 
+    
+    // Functions created for simplicity
+
     Node* getNode(const int& index);
-    const int getIndex(const Node* pFind) const;
+    int getIndex(const Node* pFind) const;
 };
 
 

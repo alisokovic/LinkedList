@@ -142,6 +142,30 @@ List& List::operator=(const List& rhs)
 }
 
 
+void List::appendItem(const int& data)
+{
+    insert(data,getNode(getSize()));
+}
+
+
+int List::getSize() const
+{
+    return getIndex(nullptr) - 1;
+}
+
+
+void List::inserAt(const int& index, const int& item)
+{
+    insert(item,getNode(index - 1));
+}
+
+
+void List::removeAt(const int& index)
+{
+    Node* tmp{ getNode(index) };
+    getNode(index - 1)->next = tmp->next;
+    delete tmp;
+}
 
 
 // Functions for simplicity
@@ -156,7 +180,7 @@ Node* List::getNode(const int& index)
 }
 
 
-const int List::getIndex(const Node* pFind) const
+int List::getIndex(const Node* pFind) const
 {
     if (pFind == dummyHead)
         return 0;

@@ -15,6 +15,11 @@ int main()
         p1 = p1->next;
     }
 
+
+    list1.print();
+
+    list1.removeAt(10);
+
     list1.print();
 
 
