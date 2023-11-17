@@ -8,11 +8,15 @@ int main()
 {
     List myList{};
 
-    std::cout << std::boolalpha << myList.isEmpty() << '\n';
+    Node* p{myList.zeroth()};
+    for (int index{1} ; index <= 250 ; ++index)
+    {
+        myList.insert(index,p);
+        p = p->next;
+    }
 
-    myList.insert(15,myList.zeroth());
 
-    std::cout << std::boolalpha << myList.isEmpty() << '\n';
+    myList.print();
 
     
 

@@ -15,6 +15,7 @@ public:
     const Node* first() const;
 
     bool isEmpty() const;
+    void print() const;
     void insert(const int& data, Node* p);
 
 private:

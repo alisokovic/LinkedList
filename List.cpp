@@ -1,3 +1,4 @@
+#include <iostream>
 #include "List.h"
 
 // Constructors
@@ -38,6 +39,24 @@ const Node* List::first() const
 bool List::isEmpty() const
 {
     return (first() == nullptr);
+}
+
+
+void List::print() const
+{
+    const Node* p{first()};
+    int count{};
+    while (p)
+    {
+        ++count;
+        std::cout << p->element << ' ';
+        if (count % 15 == 0)
+            std::cout << '\n';
+        p = p->next;
+    }
+    if (isEmpty())
+        std::cout << "The list is empty!";
+    std::cout << '\n';
 }
 
 
