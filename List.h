@@ -16,7 +16,10 @@ public:
 
     bool isEmpty() const;
     void print() const;
+    Node* find(const int& data);
+    Node* findPrevious(const int& data);
     void insert(const int& data, Node* p);
+    void remove(const int& data);
 
 private:
     Node* dummyHead;

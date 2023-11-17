@@ -60,8 +60,42 @@ void List::print() const
 }
 
 
+Node* List::find(const int& data)
+{
+    Node* p{first()};
+    while (p)
+    {
+        if (p->element == data)
+            return p;
+        p = p->next;
+    }
+    return nullptr;
+}
+
+
+Node* List::findPrevious(const int& data)
+{
+    Node* p{zeroth()};
+    while (p->next)
+    {
+        if (p->next->element == data)
+            return p;
+        p = p->next;
+    }
+    return nullptr;
+}
+
+
 void List::insert(const int& data, Node* p)
 {
     Node* newNode = new Node{data,p->next};
     p->next = newNode;
+}
+
+
+void List::remove(const int& data)
+{
+    Node* tmp{find(data)};
+    findPrevious(data)->next = tmp->next;
+    delete tmp;
 }
